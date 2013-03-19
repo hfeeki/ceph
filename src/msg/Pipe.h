@@ -270,7 +270,8 @@ class DispatchQueue;
 
     /* Remove all messages from the sent queue. Add those with seq > max_acked
      * to the highest priority outgoing queue. */
-    void requeue_sent(uint64_t max_acked=0);
+    void requeue_sent();
+    void discard_requeued_sent(uint64_t seq);
     void discard_out_queue();
 
     void shutdown_socket() {
